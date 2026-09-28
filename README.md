@@ -211,6 +211,8 @@ API → Application ← Infrastructure
 - **OpenTelemetry** — custom metrics (`vehicles.aged.stamped.total`, `inventory.filter.results`) exported to **Prometheus** (visualized in Grafana), plus ASP.NET Core / HttpClient **traces** exported via OTLP to **Jaeger**
 - **Append-only audit log** — `VehicleActionLog` is INSERT-only, no UPDATE/DELETE paths exist at the interface level
 
+**Diagrams:** [Architecture diagram (draw.io)](https://app.diagrams.net/#G1qJ6q3tTFg8NewGOT_VppIJ3uD_ZaodEI#%7B%22pageId%22%3A%22stockpulse-arch%22%7D) — source files are also in the repo at [`docs/architecture.drawio`](docs/architecture.drawio) and [`docs/sequence-diagrams.drawio`](docs/sequence-diagrams.drawio). Full details in the [System Design Document](docs/System_Design_Document.md).
+
 ---
 
 ## AI Collaboration Narrative
