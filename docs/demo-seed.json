@@ -1,0 +1,82 @@
+[
+  {
+    "vin": "4T1BF1FK5CU000001",
+    "make": "Toyota",
+    "model": "Camry",
+    "year": 2021,
+    "colour": "Silver",
+    "price": 27500,
+    "status": "Available",
+    "arrivedAt": "2025-09-15T00:00:00Z"
+  },
+  {
+    "vin": "2T1BURHE0JC000002",
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2020,
+    "colour": "White",
+    "price": 19900,
+    "status": "Available",
+    "arrivedAt": "2025-06-01T00:00:00Z"
+  },
+  {
+    "vin": "1FADP3F20DL000003",
+    "make": "Ford",
+    "model": "Focus",
+    "year": 2019,
+    "colour": "Red",
+    "price": 14500,
+    "status": "Available",
+    "arrivedAt": "2025-03-20T00:00:00Z"
+  },
+  {
+    "vin": "WBA8E9G50GNT00004",
+    "make": "BMW",
+    "model": "3 Series",
+    "year": 2022,
+    "colour": "Black",
+    "price": 38900,
+    "status": "Reserved",
+    "arrivedAt": "2025-12-10T00:00:00Z"
+  },
+  {
+    "vin": "2HGFC2F50KH000005",
+    "make": "Honda",
+    "model": "Civic",
+    "year": 2021,
+    "colour": "Blue",
+    "price": 22300,
+    "status": "Available",
+    "arrivedAt": "2026-01-05T00:00:00Z"
+  },
+  {
+    "vin": "5YJ3E1EA7KF000006",
+    "make": "Tesla",
+    "model": "Model 3",
+    "year": 2023,
+    "colour": "Midnight Grey",
+    "price": 41000,
+    "status": "Available",
+    "arrivedAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "vin": "1HGCV1F30LA000007",
+    "make": "Honda",
+    "model": "Accord",
+    "year": 2023,
+    "colour": "Grey",
+    "price": 29900,
+    "status": "Available",
+    "arrivedAt": "2026-05-20T00:00:00Z"
+  },
+  {
+    "vin": "1FA6P8TH5L5000008",
+    "make": "Ford",
+    "model": "Mustang",
+    "year": 2024,
+    "colour": "Yellow",
+    "price": 47500,
+    "status": "Available",
+    "arrivedAt": "2026-04-15T00:00:00Z"
+  }
+]

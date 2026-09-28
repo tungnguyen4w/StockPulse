@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="StockPulse.API/StockPulse.API.csproj" />
+  <Project Path="StockPulse.Domain/StockPulse.Domain.csproj" />
+  <Project Path="StockPulse.Application/StockPulse.Application.csproj" />
+  <Project Path="StockPulse.Infrastructure/StockPulse.Infrastructure.csproj" />
+  <Project Path="StockPulse.Tests/StockPulse.Tests.csproj" />
+</Solution>

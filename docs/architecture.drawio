@@ -1,0 +1,440 @@
+<mxfile host="app.diagrams.net" agent="StockPulse" pages="3">
+  <diagram id="stockpulse-arch" name="StockPulse Architecture">
+    <mxGraphModel dx="1873" dy="1196" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;" value="StockPulse — Intelligent Inventory Dashboard&#xa;Clean Architecture (.NET 8) · CQRS · SQL Server · Observability" vertex="1">
+          <mxGeometry height="44" width="760" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="band_client" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef9ee;strokeColor=#82b366;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="Clients" vertex="1">
+          <mxGeometry height="90" width="760" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_consumer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="REST API Consumer&#xa;(Postman / HttpClient)" vertex="1">
+          <mxGeometry height="46" width="210" x="70" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="c_swagger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Swagger UI&#xa;(/swagger)" vertex="1">
+          <mxGeometry height="46" width="210" x="310" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="c_ops" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Ops / Engineer&#xa;(Dashboards · Hangfire)" vertex="1">
+          <mxGeometry height="46" width="220" x="550" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="band_api" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef6ff;strokeColor=#6c8ebf;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="StockPulse.API — Presentation (ASP.NET Core)" vertex="1">
+          <mxGeometry height="230" width="760" x="40" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="mw_corr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="CorrelationIdMiddleware" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="mw_exc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="ExceptionHandlingMiddleware" vertex="1">
+          <mxGeometry height="32" width="225" x="305" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="mw_log" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="SerilogRequestLogging" vertex="1">
+          <mxGeometry height="32" width="220" x="550" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ctl_inv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8e0;strokeColor=#6c8ebf;fontSize=10;" value="InventoryController&#xa;GET /api/inventory&#xa;GET /api/inventory/{id}" vertex="1">
+          <mxGeometry height="54" width="220" x="70" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ctl_act" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8e0;strokeColor=#6c8ebf;fontSize=10;" value="ActionLogController&#xa;GET/POST&#xa;/api/inventory/{id}/actions" vertex="1">
+          <mxGeometry height="54" width="225" x="305" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ctl_adm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8e0;strokeColor=#6c8ebf;fontSize=10;" value="AdminController&#xa;POST /api/admin/seed&#xa;POST .../trigger-aging-stamp" vertex="1">
+          <mxGeometry height="54" width="220" x="550" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ep_health" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6eefc;strokeColor=#6c8ebf;fontSize=10;" value="/health" vertex="1">
+          <mxGeometry height="30" width="160" x="70" y="314" as="geometry" />
+        </mxCell>
+        <mxCell id="ep_metrics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6eefc;strokeColor=#6c8ebf;fontSize=10;" value="/metrics (Prometheus)" vertex="1">
+          <mxGeometry height="30" width="185" x="245" y="314" as="geometry" />
+        </mxCell>
+        <mxCell id="ep_hangfire" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6eefc;strokeColor=#6c8ebf;fontSize=10;" value="/hangfire (Dashboard)" vertex="1">
+          <mxGeometry height="30" width="170" x="445" y="314" as="geometry" />
+        </mxCell>
+        <mxCell id="ep_swagger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6eefc;strokeColor=#6c8ebf;fontSize=10;" value="/swagger (OpenAPI)" vertex="1">
+          <mxGeometry height="30" width="140" x="630" y="314" as="geometry" />
+        </mxCell>
+        <mxCell id="xcut" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=2;" value="Cross-cutting: Serilog (structured logging) · OpenTelemetry (traces + metrics)" vertex="1">
+          <mxGeometry height="30" width="700" x="70" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="band_app" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f6eefb;strokeColor=#9673a6;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="StockPulse.Application — CQRS Use Cases (MediatR)" vertex="1">
+          <mxGeometry height="180" width="760" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="med" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="MediatR&#xa;IRequest / Send()" vertex="1">
+          <mxGeometry height="44" width="220" x="70" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="beh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" value="Pipeline Behaviors&#xa;LoggingBehavior · ValidationBehavior" vertex="1">
+          <mxGeometry height="44" width="225" x="305" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="val" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" value="FluentValidation&#xa;Request Validators" vertex="1">
+          <mxGeometry height="44" width="220" x="550" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="feat_inv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d3bce0;strokeColor=#9673a6;fontSize=10;" value="Inventory (Queries)&#xa;GetInventory&#xa;GetVehicleById" vertex="1">
+          <mxGeometry height="70" width="220" x="70" y="514" as="geometry" />
+        </mxCell>
+        <mxCell id="feat_act" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d3bce0;strokeColor=#9673a6;fontSize=10;" value="Actions (Cmd + Query)&#xa;LogVehicleAction (Command)&#xa;GetVehicleActions (Query)" vertex="1">
+          <mxGeometry height="70" width="225" x="305" y="514" as="geometry" />
+        </mxCell>
+        <mxCell id="dto" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d3bce0;strokeColor=#9673a6;fontSize=10;" value="DTOs / Responses&#xa;VehicleDto · InventoryResponse&#xa;PagedResult&lt;T&gt;" vertex="1">
+          <mxGeometry height="70" width="220" x="550" y="514" as="geometry" />
+        </mxCell>
+        <mxCell id="band_dom" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="StockPulse.Domain — Core (no external dependencies)" vertex="1">
+          <mxGeometry height="150" width="760" x="40" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="ent" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Entities&#xa;Vehicle&#xa;VehicleActionLog" vertex="1">
+          <mxGeometry height="92" width="160" x="70" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="enum" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Enums&#xa;VehicleStatus&#xa;VehicleActionType" vertex="1">
+          <mxGeometry height="92" width="160" x="245" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="iface" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Interfaces (Ports)&#xa;IVehicleRepository&#xa;IVehicleActionLogRepository&#xa;IUnitOfWork" vertex="1">
+          <mxGeometry height="92" width="215" x="420" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="consts" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Constants&#xa;AgingConstants" vertex="1">
+          <mxGeometry height="92" width="120" x="650" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="band_inf" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdeeee;strokeColor=#b85450;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="StockPulse.Infrastructure — Persistence &amp; Background Jobs" vertex="1">
+          <mxGeometry height="180" width="760" x="40" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="dbctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="EF Core&#xa;InventoryDbContext" vertex="1">
+          <mxGeometry height="48" width="220" x="70" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Repositories + UnitOfWork&#xa;VehicleRepository · VehicleActionLogRepository" vertex="1">
+          <mxGeometry height="48" width="225" x="305" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="hf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Hangfire Server" vertex="1">
+          <mxGeometry height="48" width="220" x="550" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="mig" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="EF Migrations&#xa;(applied on startup)" vertex="1">
+          <mxGeometry height="48" width="220" x="70" y="912" as="geometry" />
+        </mxCell>
+        <mxCell id="job" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="AgingStampJob&#xa;recurring CRON (0 2 * * *)" vertex="1">
+          <mxGeometry height="48" width="220" x="550" y="912" as="geometry" />
+        </mxCell>
+        <mxCell id="band_data" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff4e6;strokeColor=#d79b00;verticalAlign=top;align=left;fontStyle=1;fontSize=13;spacingLeft=10;spacingTop=6;" value="Data Store" vertex="1">
+          <mxGeometry height="100" width="760" x="40" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="sql" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="SQL Server 2022&#xa;Vehicles · VehicleActionLogs" vertex="1">
+          <mxGeometry height="64" width="280" x="90" y="1042" as="geometry" />
+        </mxCell>
+        <mxCell id="hfdb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Hangfire Tables&#xa;(same SQL Server instance)" vertex="1">
+          <mxGeometry height="64" width="280" x="450" y="1042" as="geometry" />
+        </mxCell>
+        <mxCell id="band_obs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;verticalAlign=top;align=left;fontStyle=1;fontSize=12;spacingLeft=8;spacingTop=6;dashed=1;" value="Observability Stack (Docker Compose)" vertex="1">
+          <mxGeometry height="400" width="290" x="840" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="seq" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Seq&#xa;Structured Logs (:5341)" vertex="1">
+          <mxGeometry height="56" width="240" x="865" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="jaeger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Jaeger&#xa;Distributed Traces (OTLP :4317)" vertex="1">
+          <mxGeometry height="56" width="240" x="865" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="prom" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Prometheus&#xa;Metrics scrape (:9090)" vertex="1">
+          <mxGeometry height="56" width="240" x="865" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="graf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Grafana&#xa;Dashboards (:3000)" vertex="1">
+          <mxGeometry height="56" width="240" x="865" y="446" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="c_consumer" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="mw_corr" value="HTTPS  /api/*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="c_swagger" style="endArrow=block;html=1;rounded=1;" target="ep_swagger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="c_ops" style="endArrow=block;html=1;rounded=1;" target="ep_hangfire">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="c_ops" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="graf" value="views">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="mw_corr" style="endArrow=block;html=1;rounded=1;dashed=1;strokeColor=#6c8ebf;" target="ctl_inv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="ctl_inv" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="med" value="_mediator.Send()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="ctl_act" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="med" value="Send()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="ctl_adm" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="hf" value="enqueue / trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="med" style="endArrow=block;html=1;rounded=1;" target="beh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="beh" style="endArrow=block;html=1;rounded=1;dashed=1;fontSize=9;" target="val" value="validates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="beh" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="feat_inv" value="handles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="feat_inv" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="ent" value="uses entities">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="feat_act" style="endArrow=open;html=1;rounded=1;dashed=1;fontSize=9;" target="iface" value="depends on (port)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="repo" style="endArrow=block;html=1;rounded=1;dashed=1;strokeColor=#b85450;fontSize=9;" target="iface" value="implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="repo" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="dbctx" value="ORM">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="dbctx" style="endArrow=block;html=1;rounded=1;" target="sql">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="mig" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="sql" value="schema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="hf" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="job" value="runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="job" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="repo" value="updates aging">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="hf" style="endArrow=block;html=1;rounded=1;fontSize=9;" target="hfdb" value="job storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="xcut" style="endArrow=block;html=1;rounded=1;fontSize=9;strokeColor=#d6b656;" target="seq" value="Serilog sink">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="xcut" style="endArrow=block;html=1;rounded=1;fontSize=9;strokeColor=#d6b656;" target="jaeger" value="OTLP traces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="prom" style="endArrow=block;html=1;rounded=1;fontSize=9;strokeColor=#d6b656;" target="ep_metrics" value="scrape /metrics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="graf" style="endArrow=block;html=1;rounded=1;fontSize=9;strokeColor=#d6b656;" target="prom" value="PromQL">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Seq · Log Vehicle Action" id="04cQjW2KqFcwhKBsDEeq">
+    <mxGraphModel dx="1030" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1650" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Sequence — POST /api/inventory/{id}/actions  ·  Log Vehicle Action (Command through MediatR pipeline)" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ll1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#d5e8d4;strokeColor=#82b366;" value="Client" vertex="1">
+          <mxGeometry height="660" width="120" x="40" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#dae8fc;strokeColor=#6c8ebf;" value=":ActionLogController" vertex="1">
+          <mxGeometry height="660" width="170" x="200" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#e1d5e7;strokeColor=#9673a6;" value=":MediatR" vertex="1">
+          <mxGeometry height="660" width="120" x="410" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#e1d5e7;strokeColor=#9673a6;" value=":LoggingBehavior" vertex="1">
+          <mxGeometry height="660" width="150" x="570" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#e1d5e7;strokeColor=#9673a6;" value=":ValidationBehavior" vertex="1">
+          <mxGeometry height="660" width="160" x="760" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#d3bce0;strokeColor=#9673a6;" value=":LogVehicleActionCommandHandler" vertex="1">
+          <mxGeometry height="660" width="190" x="960" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#f8cecc;strokeColor=#b85450;" value=":Repository + UnitOfWork" vertex="1">
+          <mxGeometry height="660" width="170" x="1190" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ll8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#ffe6cc;strokeColor=#d79b00;" value=":SQL Server (via EF Core)" vertex="1">
+          <mxGeometry height="660" width="150" x="1400" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="POST /api/inventory/{id}/actions  { actionType }">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="130" as="sourcePoint" />
+            <mxPoint x="285" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="mediator.Send(LogVehicleActionCommand)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="285" y="162" as="sourcePoint" />
+            <mxPoint x="470" y="162" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="Handle()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="194" as="sourcePoint" />
+            <mxPoint x="645" y="194" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n4" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;size=10;align=left;" value="log &quot;Handling {Request}&quot;&#xa;start Stopwatch" vertex="1">
+          <mxGeometry height="34" width="160" x="575" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="next()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="645" y="252" as="sourcePoint" />
+            <mxPoint x="840" y="252" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n6" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;size=10;align=left;" value="FluentValidation.Validate()&#xa;on failure → throw ValidationException → 400 Bad Request" vertex="1">
+          <mxGeometry height="40" width="240" x="765" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="next()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="316" as="sourcePoint" />
+            <mxPoint x="1055" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="ExistsAsync(vehicleId)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1055" y="348" as="sourcePoint" />
+            <mxPoint x="1275" y="348" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="SELECT 1 WHERE Id = @vehicleId">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1275" y="380" as="sourcePoint" />
+            <mxPoint x="1475" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m10" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="exists : bool">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1475" y="412" as="sourcePoint" />
+            <mxPoint x="1275" y="412" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nnf" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;size=10;align=left;" value="if !exists → throw NotFoundException → 404 Not Found" vertex="1">
+          <mxGeometry height="32" width="245" x="1010" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="m11" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="AddAsync(new VehicleActionLog)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1055" y="470" as="sourcePoint" />
+            <mxPoint x="1275" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m12" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="SaveChangesAsync()   [UnitOfWork commit]">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1055" y="502" as="sourcePoint" />
+            <mxPoint x="1275" y="502" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="INSERT INTO VehicleActionLogs">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1275" y="534" as="sourcePoint" />
+            <mxPoint x="1475" y="534" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="rows affected">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1475" y="566" as="sourcePoint" />
+            <mxPoint x="1275" y="566" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="VehicleActionLogDto">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1055" y="598" as="sourcePoint" />
+            <mxPoint x="840" y="598" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="dto">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="630" as="sourcePoint" />
+            <mxPoint x="645" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n17" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;size=10;align=left;" value="log &quot;Handled in {ms}ms&quot;" vertex="1">
+          <mxGeometry height="26" width="160" x="575" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="m18" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="dto">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="645" y="678" as="sourcePoint" />
+            <mxPoint x="470" y="678" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m19" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="dto">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="700" as="sourcePoint" />
+            <mxPoint x="285" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m20" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=10;" value="201 Created + VehicleActionLogDto">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="285" y="722" as="sourcePoint" />
+            <mxPoint x="100" y="722" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Seq · Aging Stamp Job" id="TEUlzWXw6aSp365s6qts">
+    <mxGraphModel dx="1373" dy="877" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t2" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Sequence — AgingStampJob  ·  recurring Hangfire job (CRON 0 2 * * *) or Admin manual trigger" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#f8cecc;strokeColor=#b85450;" value="Hangfire Server (CRON 0 2 * * *)&#xa;/ AdminController trigger" vertex="1">
+          <mxGeometry height="380" width="200" x="40" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#f8cecc;strokeColor=#b85450;" value=":AgingStampJob" vertex="1">
+          <mxGeometry height="380" width="160" x="290" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#f8cecc;strokeColor=#b85450;" value=":InventoryDbContext (EF Core)" vertex="1">
+          <mxGeometry height="380" width="190" x="500" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#ffe6cc;strokeColor=#d79b00;" value=":SQL Server" vertex="1">
+          <mxGeometry height="380" width="150" x="740" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#fff2cc;strokeColor=#d6b656;" value="OTel Meter → Prometheus" vertex="1">
+          <mxGeometry height="380" width="190" x="940" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=50;fillColor=#fff2cc;strokeColor=#d6b656;" value="Serilog → Seq" vertex="1">
+          <mxGeometry height="380" width="160" x="1180" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" value="ExecuteAsync()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="130" as="sourcePoint" />
+            <mxPoint x="370" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bn" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;size=10;align=left;" value="threshold = UtcNow − AgingConstants.AgingThresholdDays" vertex="1">
+          <mxGeometry height="34" width="220" x="295" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=9;" value="Vehicles.Where(ArrivedAt &lt; threshold &amp;&amp; !IsAging).ExecuteUpdateAsync(IsAging = true)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="200" as="sourcePoint" />
+            <mxPoint x="595" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=9;" value="UPDATE Vehicles SET IsAging = 1 WHERE …">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="595" y="234" as="sourcePoint" />
+            <mxPoint x="815" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=9;" value="rows affected : count">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="815" y="266" as="sourcePoint" />
+            <mxPoint x="595" y="266" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=9;" value="count">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="595" y="298" as="sourcePoint" />
+            <mxPoint x="370" y="298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b7" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=9;" value="counter.Add(count)  // vehicles.aged.stamped.total">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="330" as="sourcePoint" />
+            <mxPoint x="1035" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=9;" value="LogInformation(&quot;{count} vehicles flagged as aging&quot;)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="362" as="sourcePoint" />
+            <mxPoint x="1260" y="362" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b9" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;fontSize=9;" value="complete">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="408" as="sourcePoint" />
+            <mxPoint x="140" y="408" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
