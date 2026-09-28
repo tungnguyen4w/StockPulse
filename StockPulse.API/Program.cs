@@ -32,7 +32,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "StockPulse — Intelligent Inventory Dashboard",
         Version = "v1",
-        Description = "CTBW Technical Assessment — Scenario B. Auth is out of scope; all endpoints are public."
+        Description = "CBTW Technical Assessment — Scenario B. Auth is out of scope; all endpoints are public."
     });
     c.UseInlineDefinitionsForEnums();
 });

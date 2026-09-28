@@ -1,7 +1,7 @@
 # Stage 2 — Requirements
 
 **Project:** StockPulse — Intelligent Inventory Dashboard
-**Scenario:** CTBW Technical Assessment — Scenario B
+**Scenario:** CBTW Technical Assessment — Scenario B
 **Upstream:** `01-brainstorming.md` · **Downstream:** `03-prd.md`
 **Status:** Baselined
 
@@ -106,7 +106,7 @@ Traceability: each FR maps back to a Scenario B core requirement (CR1 Visualizat
 **Constraints**
 - C-1: Backend service layer only; the client is mocked (Swagger UI / cURL).
 - C-2: RESTful API over a persistent relational database.
-- C-3: .NET / SQL Server ecosystem (aligns with CTBW's stack).
+- C-3: .NET / SQL Server ecosystem (aligns with CBTW's stack).
 
 **Assumptions (documented per the brief's ambiguity note)**
 - A-1: A single dealership is seeded for the assessment, but multi-tenant scoping is built in.

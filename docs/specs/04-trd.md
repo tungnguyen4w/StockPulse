@@ -1,7 +1,7 @@
 # Stage 4 — Technical Requirements Document (TRD)
 
 **Product:** StockPulse — Intelligent Inventory Dashboard
-**Scenario:** CTBW Technical Assessment — Scenario B
+**Scenario:** CBTW Technical Assessment — Scenario B
 **Upstream:** `03-prd.md` · **Downstream:** Implementation & Test (Stage 5)
 **Status:** Refined / Baselined (Refine gate passed — proposals accepted)
 **Companion:** `docs/System_Design_Document.md` (architecture narrative + diagrams)
@@ -32,7 +32,7 @@ StockPulse.Domain         → entities, enums, constants, repository interfaces 
 
 | Concern | Technology | Version | Justification | Trace |
 |---|---|---|---|---|
-| Runtime / API | .NET / ASP.NET Core | **net10.0** | CTBW-aligned stack; minimal hosting, first-class DI, fast. | — |
+| Runtime / API | .NET / ASP.NET Core | **net10.0** | CBTW-aligned stack; minimal hosting, first-class DI, fast. | — |
 | Mediation / CQRS | MediatR | 12.x | Clean handler-per-use-case; pipeline behaviors for cross-cutting. | NFR-9, NFR-10 |
 | Validation | FluentValidation | 11.x | Declarative, testable rules as a pipeline behavior; handlers assume valid input. | FR-8, FR-17, NFR-12 |
 | ORM / migrations | EF Core | 9.x | Code-first migrations, type-safe LINQ, `ExecuteUpdateAsync` for set-based stamping. | FR-24, NFR-1 |

@@ -1,6 +1,6 @@
-# CTBW Technical Assessment
+# CBTW Technical Assessment
 
-Welcome to the CTBW technical assessment! This challenge is designed to simulate the real-world problems our engineers solve every day. It's an opportunity for you to showcase your design thinking, technical execution, and problem-solving skills on a task that is relevant to our mission of transforming the automotive retail experience.
+Welcome to the CBTW technical assessment! This challenge is designed to simulate the real-world problems our engineers solve every day. It's an opportunity for you to showcase your design thinking, technical execution, and problem-solving skills on a task that is relevant to our mission of transforming the automotive retail experience.
 
 ## A Modern Approach: Engineering with AI Agents
 
@@ -110,4 +110,4 @@ We are excited to see what you build. Good luck!
 
 ---
 
-*Source: CTBW Technical Assessment, 01/01/25 V1.0 — ©CTBW – Public*
+*Source: CBTW Technical Assessment, 01/01/25 V1.0 — ©CBTW – Public*

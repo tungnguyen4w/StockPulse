@@ -1,6 +1,6 @@
 # StockPulse — Intelligent Inventory Dashboard
 
-CTBW Technical Assessment — Scenario B
+CBTW Technical Assessment — Scenario B
 
 A .NET 10 backend REST API for dealership inventory management with automated aging stock detection, action audit logging, and full observability.
 

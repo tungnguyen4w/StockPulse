@@ -1,7 +1,7 @@
 # Stage 3 — Product Requirements Document (PRD)
 
 **Product:** StockPulse — Intelligent Inventory Dashboard
-**Scenario:** CTBW Technical Assessment — Scenario B (Domain: Supply)
+**Scenario:** CBTW Technical Assessment — Scenario B (Domain: Supply)
 **Upstream:** `02-requirements.md` · **Downstream:** `04-trd.md`
 **Status:** Refined / Baselined (Refine gate passed — open questions resolved as stated below)
 **Author:** Product, with AI collaboration (see `README.md` → AI Collaboration Narrative)

@@ -1,7 +1,7 @@
 # Stage 6 — Review
 
 **Product:** StockPulse — Intelligent Inventory Dashboard
-**Scenario:** CTBW Technical Assessment — Scenario B
+**Scenario:** CBTW Technical Assessment — Scenario B
 **Upstream:** `04-trd.md`, implementation · **Gate:** Approve
 **Status:** ✅ APPROVED (2026-06-04) — fast-follow fixes F-1/F-2/F-3 applied and verified
 **Reviewer:** Engineering, with AI collaboration

@@ -1,9 +1,9 @@
 # Stage 1 — Brainstorming
 
 **Project:** StockPulse — Intelligent Inventory Dashboard
-**Scenario:** CTBW Technical Assessment — Scenario B (Domain: Supply)
+**Scenario:** CBTW Technical Assessment — Scenario B (Domain: Supply)
 **Method:** Question Storming → Constraint Mapping → Six Thinking Hats
-**Input:** `docs/CTBW_Coding_Challenge.md` (Scenario B core requirements)
+**Input:** `docs/CBTW_Coding_Challenge.md` (Scenario B core requirements)
 
 > This document captures the divergent thinking that precedes formal requirements. Nothing here is a commitment — it is the raw idea space. Decisions that survive into scope are promoted to `02-requirements.md`.
 
@@ -94,7 +94,7 @@ What's fixed, what's flexible, what's out.
 
 ## 4. Six Thinking Hats (compressed)
 
-- **White (facts):** Three requirements, backend, tests, observability, AI narrative. .NET ecosystem assumed (CTBW is a .NET shop).
+- **White (facts):** Three requirements, backend, tests, observability, AI narrative. .NET ecosystem assumed (CBTW is a .NET shop).
 - **Red (gut):** The append-only log "feels" right for an automotive/compliance domain. Stamp-on-write "feels" like the grown-up answer.
 - **Black (caution):** Cold-start aging = all false → bad demo. Mitigate with manual trigger. Background job on an empty/first-run DB must not crash startup. LocalDB won't run on Linux/WSL — needs a cross-platform DB story (Docker).
 - **Yellow (optimism):** Stamp-on-write + Hangfire showcases real supply-chain thinking and gives free observability hooks (job metrics, run history).

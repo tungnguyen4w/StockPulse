@@ -1,5 +1,5 @@
 ---
-title: 'CTBW Intelligent Inventory Dashboard — Backend API'
+title: 'CBTW Intelligent Inventory Dashboard — Backend API'
 type: 'feature'
 created: '2026-06-03'
 status: 'in-review'
@@ -12,7 +12,7 @@ context:
 
 ## Intent
 
-**Problem:** CTBW Technical Assessment Scenario B requires a backend API for a dealership inventory dashboard — no such system exists yet. The solution must support filterable vehicle inventory, automated aging stock detection, and an append-only action audit log.
+**Problem:** CBTW Technical Assessment Scenario B requires a backend API for a dealership inventory dashboard — no such system exists yet. The solution must support filterable vehicle inventory, automated aging stock detection, and an append-only action audit log.
 
 **Approach:** Build a .NET 10 Clean Architecture REST API (Domain / Application / Infrastructure / API / Tests) using MediatR CQRS, EF Core + SQL Server LocalDB, Hangfire scheduled background job, Serilog + OpenTelemetry observability, and Swagger UI as the client stub. The existing `StockPulse.API` project is the starting point.
 

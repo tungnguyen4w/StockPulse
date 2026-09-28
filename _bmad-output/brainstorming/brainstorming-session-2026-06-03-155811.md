@@ -1,12 +1,12 @@
 ---
 stepsCompleted: [1, 2, 3]
-inputDocuments: ["docs/CTBW_Coding_Challenge.md"]
-session_topic: "System Design for CTBW Scenario B - Intelligent Inventory Dashboard (.NET Core Backend)"
+inputDocuments: ["docs/CBTW_Coding_Challenge.md"]
+session_topic: "System Design for CBTW Scenario B - Intelligent Inventory Dashboard (.NET Core Backend)"
 session_goals: "Explore and validate architecture decisions, component design, data models, API design, observability strategy, and technology justifications to produce a comprehensive System Design Document"
 selected_approach: "AI-Recommended Techniques: Question Storming → Constraint Mapping → Six Thinking Hats"
 techniques_used: ["Question Storming", "Constraint Mapping", "Six Thinking Hats"]
 ideas_generated: 18
-context_file: "docs/CTBW_Coding_Challenge.md"
+context_file: "docs/CBTW_Coding_Challenge.md"
 ---
 
 # Brainstorming Session Results
@@ -16,13 +16,13 @@ context_file: "docs/CTBW_Coding_Challenge.md"
 
 ## Session Overview
 
-**Topic:** System Design for CTBW Scenario B — Intelligent Inventory Dashboard
+**Topic:** System Design for CBTW Scenario B — Intelligent Inventory Dashboard
 **Tech Stack:** .NET Core (Backend), frontend mocked/stubbed via Swagger UI
-**Goals:** Surface design options, trade-offs, and assumptions to produce a thorough System Design Document for the CTBW Technical Assessment
+**Goals:** Surface design options, trade-offs, and assumptions to produce a thorough System Design Document for the CBTW Technical Assessment
 
 ### Context Guidance
 
-CTBW Scenario B requires:
+CBTW Scenario B requires:
 1. **Inventory Visualization** — filterable list of vehicles (make, model, age)
 2. **Aging Stock Identification** — vehicles in inventory >90 days, prominently displayed
 3. **Actionable Insights** — log and persist a status/action for each aging vehicle

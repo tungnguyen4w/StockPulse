@@ -1,5 +1,5 @@
 # System Design Document
-## CTBW Technical Assessment — Scenario B: The Intelligent Inventory Dashboard
+## CBTW Technical Assessment — Scenario B: The Intelligent Inventory Dashboard
 
 **Author:** tungnguyen
 **Date:** 2026-06-03
@@ -374,7 +374,7 @@ GET    /metrics         → Prometheus scrape endpoint (OpenTelemetry metrics)
 
 | Technology | Version | Justification |
 |---|---|---|
-| **.NET 10 (ASP.NET Core)** | net10.0 | Current release; minimal hosting, first-class DI, excellent EF Core integration. Aligns with CTBW's .NET stack. |
+| **.NET 10 (ASP.NET Core)** | net10.0 | Current release; minimal hosting, first-class DI, excellent EF Core integration. Aligns with CBTW's .NET stack. |
 | **Clean Architecture** | — | Enforces dependency inversion — Application layer has zero infrastructure dependencies. Maximises testability and makes the architectural intent visible to evaluators. |
 | **MediatR** | 12.x | Implements CQRS pattern cleanly. Pipeline behaviors provide cross-cutting concerns (logging, validation) without polluting handlers. Each handler is independently testable. |
 | **Entity Framework Core** | 9.x | Code First migrations version the schema alongside code. LINQ queries are type-safe. Excellent SQL Server support. |
@@ -570,4 +570,4 @@ During implementation the same direct-and-verify approach surfaced and resolved 
 *Document generated: 2026-06-03; implementation & observability updates: 2026-06-04*
 *Brainstorming session: `_bmad-output/brainstorming/brainstorming-session-2026-06-03-155811.md`*
 *Delivery pipeline: [`docs/specs/`](specs/) (requirements → PRD → TRD → review)*
-*Based on: CTBW Technical Assessment V1.0*
+*Based on: CBTW Technical Assessment V1.0*
